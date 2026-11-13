@@ -1,0 +1,23 @@
+name: Verify
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: dotnet restore --configfile NuGet.Config
+      - run: dotnet build --no-restore -c Release
+      - run: dotnet run --no-build --no-restore -c Release --project src/HhScout.Api -- --install-browser --with-deps
+      - run: npm ci
+        working-directory: web
+      - run: npm run build
+        working-directory: web
+      - run: dotnet test --no-restore -c Release

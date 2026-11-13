@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/HhScout.Api/HhScout.Api.csproj" />
+    <Project Path="src/HhScout.Core/HhScout.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HhScout.Tests/HhScout.Tests.csproj" />
+  </Folder>
+</Solution>

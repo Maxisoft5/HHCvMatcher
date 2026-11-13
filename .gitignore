@@ -1,0 +1,15 @@
+**/bin/
+**/obj/
+node_modules/
+.cache/
+artifacts/
+**/data/
+web/dist/
+src/HhScout.Api/wwwroot/
+web/*.tsbuildinfo
+web/test-results/
+web/playwright-report/
+*.user
+.idea/
+.env*
+!.env.example
